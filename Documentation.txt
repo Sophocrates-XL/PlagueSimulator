@@ -1,0 +1,54 @@
+DEMOGRAPHIC SPECIFICATIONS:
+# Population: The total number of individuals simulated.
+
+PLAGUE SPECIFICATIONS:
+# Infection rate: The probability of transmission each tick. Corresponds to the rate K in S + I -> I + I.
+# Appearance rate: The probability of an incubant person shows symptoms each tick.
+# Recovery rate: The probability of recovery of a symptomatic patient each tick.
+# Death rate: The probability of death of a symptomatic patient each tick.
+# Acquired immunity: Determines if a recovered individual can be reinfected.
+
+POLICY SPECIFICATIONS:
+# Motion rate: The probability that an individual moves each tick.
+# Teleport rate: The probability that an individual takes a transport each tick.
+# Discovery rate: The probability that a symptomatic individual will be discovered by the healthcare.
+# Cure rate: The probability that an individual is cured each tick.
+# Patient capacity: The maximum number of patients that can be treated simultaneously.
+
+LOGICAL FLOW OF INFECTION:
+1. A susceptible individual acquires the disease and enters the incubation state. [ Infectivity ]
+2. The incubation state gradually transits to the symptomatic state. [ Appearance rate ]
+3. A symptomatic individual is identified by the healthcare system. [ Discovery rate. Patient capacity. ]
+4. A symptomatic individual either remains as such, or recovers, or dies. Hospitalization substantially
+increases recovery and reduces death. [ Recovery rate. Death rate. Hospitalization status ]
+5. A recovered patient may or may not be reinfected. [ Acquired immunity. ]
+
+
+
+
+
+
+
+
+POLICIES:
+# Prohibit transport: Individuals will not be teleported randomly on the map.
+# Restrict movement: Individuals are 90% less likely to move around.
+# Safe distance: Individuals are 50% less likely to approach other individuals.
+
+
+TILE TYPES:
+# Passables: Valid locations where a person may move to and where teleport points may be set.
+# Unpassables: Invalid movement or teleport locations.
+
+SIMULATION ELEMENTS:
+# Persons: Randomly moves about. Teleports themselves to random destinations on teleport points.
+# Quarantine zones: Delineates a rectangular area where no movement or transmission can traverse its borders.
+# Teleport points: Instantaneously teleports a person to another random teleport point.
+
+MOUSE CONTROLS:
+# Left mouse button: Click, drag over the screen and unclick to create a rectangular quarantine zone.
+# Right mouse button: Click to visualize asymptomatic cases. Unclick to hide asymptomatic cases.
+
+KEYBOARD CONTROLS:
+# T: Toggles transport restriction status. In transport restriction, all teleport points will be disabled.
+# M: Toggles movement restriction status. In movement restriction, all people are 90% less likely to move.
